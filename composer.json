@@ -1,0 +1,27 @@
+{
+  "name": "mattKendon/corcel-to-corcel",
+  "description": "An addon to the jgrossi/corcel package to support the posts-to-posts plugin by scribu",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Matthew Kendon",
+      "email": "mkendon@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "jgrossi/corcel": "1.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.2.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "CorcelToCorcel\\": "src/"
+    },
+    "classmap": [
+      "models"
+    ]
+  }
+}
