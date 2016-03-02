@@ -6,9 +6,10 @@ class PostWithConnection extends \Corcel\Post
 
     public function connections()
     {
-        return $this->hasMany('\CorcelToCorcel\Connection', 'p2p_to');
+        return $this->hasMany('\CorcelToCorcel\Connection', 'p2p_from', 'ID');
     }
 }
+
 
 class PostWithConnectionTest extends PHPUnit_Framework_TestCase
 {
@@ -22,8 +23,8 @@ class PostWithConnectionTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_fetch_a_connection_by_type()
     {
-        $post = PostWithConnection::type('1');
-        $connection = $post->connections()->first();
-        $this->assertInstanceOf('\CorcelToCorcel\ConnectionMetaCollection', $connection->p2p_type);
+        $post = PostWithConnection::find(1);
+        $connection = $post->connections()->type('post_page')->first();
+        $this->assertEquals('post_page', $connection->p2p_type);
     }
 }
