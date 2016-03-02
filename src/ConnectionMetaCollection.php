@@ -1,15 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Matthew
- * Date: 01/03/2016
- * Time: 23:27
- */
 
 namespace CorcelToCorcel;
 
+use Illuminate\Database\Eloquent\Collection;
 
-class ConnectionMetaCollection
+class ConnectionMetaCollection extends Collection
 {
 
     protected $changedKeys = array();
@@ -24,7 +19,7 @@ class ConnectionMetaCollection
     {
         foreach ($this->items as $item) {
             if ($item->meta_key == $key) {
-                return $item->meta_value;
+                return $item->value;
             }
         }
     }

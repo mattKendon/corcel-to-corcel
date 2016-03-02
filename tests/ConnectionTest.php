@@ -2,6 +2,7 @@
 
 use Corcel\Post;
 use CorcelToCorcel\Connection;
+use CorcelToCorcel\ConnectionMetaCollection;
 
 class ConnectionTest extends PHPUnit_Framework_TestCase
 {
@@ -34,5 +35,12 @@ class ConnectionTest extends PHPUnit_Framework_TestCase
         $connection = Connection::find(1);
         $this->assertInstanceOf(Post::class, $connection->to);
         $this->assertInstanceOf(Post::class, $connection->from);
+    }
+
+    /** @test */
+    public function it_can_get_associated_meta_data()
+    {
+        $connection = Connection::find(1);
+        $this->assertInstanceOf(ConnectionMetaCollection::class, $connection->meta);
     }
 }

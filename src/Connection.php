@@ -46,6 +46,6 @@ class Connection extends Eloquent
      */
     public function newCollection(array $models = array())
     {
-        return new PostMetaCollection($models);
+        return new ConnectionMetaCollection($models);
     }
 }
