@@ -15,12 +15,12 @@ class Connection extends Eloquent
 
     public function to()
     {
-        return $this->hasOne(Post::class, 'ID', 'p2p_to');
+        return $this->belongsTo('Corcel\Post', 'p2p_to', 'ID');
     }
 
     public function from()
     {
-        return $this->hasOne(Post::class, 'ID', 'p2p_from');
+        return $this->belongsTo('Corcel\Post', 'p2p_from', 'ID');
     }
 
     public function scopeType($query, $type)

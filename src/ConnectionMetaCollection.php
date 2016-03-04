@@ -35,10 +35,10 @@ class ConnectionMetaCollection extends Collection
             }
         }
 
-        $item = new PostMeta(array(
+        $item = new ConnectionMeta([
             'meta_key' => $key,
             'meta_value' => $value,
-        ));
+        ]);
 
         $this->push($item);
     }

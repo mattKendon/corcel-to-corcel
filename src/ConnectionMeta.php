@@ -47,7 +47,7 @@ class ConnectionMeta extends Eloquent
     /**
      * Override newCollection() to return a custom collection
      * @param array $models
-     * @return \CorcelToCorcel\PostMetaCollection
+     * @return \CorcelToCorcel\ConnectionMetaCollection
      */
     public function newCollection(array $models = array())
     {
