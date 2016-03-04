@@ -38,4 +38,20 @@ class Connection extends Eloquent
     {
         return $this->hasMany('CorcelToCorcel\ConnectionMeta', 'p2p_id');
     }
+
+    /**
+     * add new where method if connectionType has been set for this model
+     *
+     * @return Builder
+     */
+    public function newQuery()
+    {
+        $builder = parent::newQuery();
+
+        if (isset($this->connectionType) and $this->connectionType) {
+            $builder->where('p2p_type', $this->connectionType);
+        }
+
+        return $builder;
+    }
 }

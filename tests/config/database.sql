@@ -124,10 +124,10 @@ VALUES
   (2,1,10,'post_page'),
   (3,1,11,'post_page'),
   (4,2,12,'post_page'),
-  (5,2,13,'post_page'),
-  (6,3,13,'post_page'),
-  (7,3,14,'post_page'),
-  (8,3,15,'post_page')
+  (5,2,3,'post_post'),
+  (6,3,4,'post_post'),
+  (7,3,5,'post_post'),
+  (8,3,6,'post_post')
 ;
 
 /*!40000 ALTER TABLE `wp_p2p` ENABLE KEYS */;

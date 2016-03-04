@@ -4,6 +4,11 @@ use Corcel\Post;
 use CorcelToCorcel\Connection;
 use CorcelToCorcel\ConnectionMetaCollection;
 
+class ConnectionWithType extends Connection
+{
+    public $connectionType = 'post_post';
+}
+
 class ConnectionTest extends PHPUnit_Framework_TestCase
 {
     /** @test */
@@ -24,9 +29,13 @@ class ConnectionTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_be_fetched_by_its_type()
     {
-        $connection = Connection::type('post_page')->first();
+        $connection = Connection::type('post_post')->first();
         $this->assertInstanceOf(Connection::class, $connection);
-        $this->assertEquals('post_page', $connection->p2p_type);
+        $this->assertEquals('post_post', $connection->p2p_type);
+
+        $connectionWithType = ConnectionWithType::first();
+        $this->assertInstanceOf(Connection::class, $connectionWithType);
+        $this->assertEquals('post_post', $connectionWithType->p2p_type);
     }
 
     /** @test */
