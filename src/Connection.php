@@ -54,4 +54,19 @@ class Connection extends Eloquent
 
         return $builder;
     }
+
+    /**
+     * Before saving the connection, save any updated ConnectionMeta models
+     *
+     * @param array $options
+     * @return bool
+     */
+    public function save(array $options = array())
+    {
+        if (isset($this->attributes[$this->primaryKey])) {
+            $this->meta->save($this->attributes[$this->primaryKey]);
+        }
+
+        return parent::save($options);
+    }
 }
