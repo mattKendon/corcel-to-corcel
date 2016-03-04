@@ -43,11 +43,11 @@ class ConnectionMetaCollection extends Collection
         $this->push($item);
     }
 
-    public function save($postId)
+    public function save($connectionId)
     {
-        $this->each(function($item) use ($postId) {
+        $this->each(function($item) use ($connectionId) {
             if (in_array($item->meta_key, $this->changedKeys)) {
-                $item->post_id = $postId;
+                $item->meta_id = $connectionId;
                 $item->save();
             }
         });
