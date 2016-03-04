@@ -47,7 +47,7 @@ class ConnectionMetaCollection extends Collection
     {
         $this->each(function($item) use ($connectionId) {
             if (in_array($item->meta_key, $this->changedKeys)) {
-                $item->meta_id = $connectionId;
+                $item->p2p_id = $connectionId;
                 $item->save();
             }
         });
