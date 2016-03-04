@@ -17,7 +17,8 @@ class PostWithConnectionTest extends PHPUnit_Framework_TestCase
     public function it_can_fetch_all_its_connections()
     {
         $post = PostWithConnection::find(1);
-        $this->assertInstanceOf('\CorcelToCorcel\ConnectionMetaCollection', $post->connections);
+        $this->assertInstanceOf('\Illuminate\Database\Eloquent\Collection', $post->connections);
+        $this->assertInstanceOf('\CorcelToCorcel\Connection', $post->connections->first());
     }
 
     /** @test */
@@ -29,6 +30,13 @@ class PostWithConnectionTest extends PHPUnit_Framework_TestCase
     }
 
     public function it_can_get_a_connected_post_from_a_connection()
+    {
+        $post = PostWithConnection::find(1);
+        $connection = $post->connections()->first();
+        $this->assertInstanceOf('\Corcel\Post', $connection->to);
+    }
+
+    public function it_can_get_the_meta_for_a_connection()
     {
         $post = PostWithConnection::find(1);
         $connection = $post->connections()->first();

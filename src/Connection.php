@@ -38,14 +38,4 @@ class Connection extends Eloquent
     {
         return $this->hasMany('CorcelToCorcel\ConnectionMeta', 'p2p_id');
     }
-
-    /**
-     * Override newCollection() to return a custom collection
-     * @param array $models
-     * @return \CorcelToCorcel\ConnectionMetaCollection
-     */
-    public function newCollection(array $models = array())
-    {
-        return new ConnectionMetaCollection($models);
-    }
 }
